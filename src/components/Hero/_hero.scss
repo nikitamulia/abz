@@ -1,0 +1,53 @@
+@import'../../sass/mixins';
+@import '../../sass/buttons';
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: 500px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #2F303A;
+    background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgrounMob.png);
+    padding: 40px 16px 71px 16px;
+
+   
+    @include min768-max1023{
+        padding: 0 32px;
+    }
+    @include min1024{
+        padding: 0 64px;
+    }
+}
+
+
+.hero_container-title{
+    font-family: var(--primary-font);
+    color: var(--secondary-text-xolor);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 21px;
+   
+}
+
+.hero_container-text{
+    font-family: var(--primary-font);
+    color: var(--secondary-text-xolor);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.hero_container-btn{
+    @extend %butt_size_1;
+	&.yellow_mod {
+		@extend %butt_yellow_1;
+	}
+}

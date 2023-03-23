@@ -1,0 +1,47 @@
+%butt_size_1 {
+	display: block;
+	height:34px;
+    width: 100px;
+    border-radius: 80px;
+    border: none;
+	font-family: var(--primary-font);
+	font-size: 16px;
+    line-height: 26px;
+}
+
+%butt_size_2 {
+	display: block;
+	height:34px;
+    width: 120px;
+	font-family: var(--primary-font);
+	font-size: 16px;
+}
+
+
+%butt_yellow_1 {
+	color: var(--primary-text-color);
+	background: var(--primary-color);
+	transition: all .3s ease;
+
+	&:hover, &:focus {
+		background: var(--button-hover-color);
+	}
+
+	&:hover {
+		background: var(--button-hover-color);
+	}
+}
+
+%butt_grey_1 {
+	background: var(--button-disabled-color);
+	color:  --secondary-text-xolor;
+	transition: all .3s ease;
+
+	// &:hover, &:focus {
+	// 	text-decoration: none;
+	// }
+
+	// &:hover {
+	// 	background: lighten($blue_1, 5%);
+	// }
+}
