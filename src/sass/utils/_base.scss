@@ -8,7 +8,6 @@
 
 img {
     display: block;
-    width: 100%;
     max-width: 100%;
     height: auto;
 }
@@ -25,6 +24,7 @@ ul {
     margin-bottom: 0;
     padding-left: 0;
     padding-inline-start: 0;
+    list-style: none;
 }
 
 h1,
@@ -46,12 +46,26 @@ address {
 
 
 body {
+    margin: 0;
     font-family: var(--primary-font);
     color: var(--primary-text-color);
 }
 
 
-
+.container {
+    @include max767{
+        padding: 0 16px;
+    }
+    @include min768-max1023{
+        padding: 0 32px;
+    }
+    @include min1024{
+        padding: 0 64px;
+    }
+}
+.main {
+    background-color: var( --background-color);
+}
 .visually-hidden {
     position: absolute;
     white-space: nowrap;

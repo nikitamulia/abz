@@ -1,21 +1,8 @@
-@import '../../sass/variables';
-@import '../../sass/buttons';
-
 .header{
     display: flex;
     align-items: center;
     justify-items: baseline;
     height: 60px;
-    
-    @include max767{
-        padding: 0 16px;
-    }
-    @include min768-max1023{
-        padding: 0 32px;
-    }
-    @include min1024{
-        padding: 0 64px;
-    }
 }
 
 .header-logo{

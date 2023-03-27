@@ -1,5 +1,4 @@
-@import'../../sass/mixins';
-@import '../../sass/buttons';
+
 
 .hero{
     display: flex;
@@ -10,9 +9,11 @@
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #2F303A;
+    background-color: #F8F8F8;
     background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgrounMob.png);
     padding: 40px 16px 71px 16px;
+   
+    
 
    
     @include min768-max1023{

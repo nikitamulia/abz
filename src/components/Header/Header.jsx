@@ -1,10 +1,9 @@
 import React from 'react';
-import './_header.scss';
 import { ReactComponent as Logo } from '../../images/logo.svg';
 
 export default function Header() {
   return (
-    <header className="header">
+    <header className="header container">
       <div className="header-logo">
         <Logo />
       </div>
