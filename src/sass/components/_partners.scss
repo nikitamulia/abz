@@ -1,5 +1,6 @@
 .partners{
     margin-top: 140px;
+    margin-bottom: 140px;
 }
 .partners_title{
     font-family: var(--primary-font);
@@ -17,6 +18,18 @@
    flex-direction: column;
    gap: 20px;
    margin-bottom: 54px;
+
+   @include min768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+   }
+
+   @include min1024 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 29px;
+   }
    
 }
 
@@ -25,5 +38,9 @@
 	&.yellow_mod {
 		@extend %butt_yellow_1;
 	}
+    &.disable_mod {
+        @extend %butt_grey_1;
+        color: #fff;
+     }
     margin: auto;
 }

@@ -44,6 +44,11 @@ address {
     font-style: normal;
 }
 
+input {
+    outline:none;
+    
+}
+
 
 body {
     margin: 0;
@@ -53,14 +58,16 @@ body {
 
 
 .container {
+    margin: 0 auto;
+    max-width: 1170px;
     @include max767{
         padding: 0 16px;
     }
     @include min768-max1023{
         padding: 0 32px;
     }
-    @include min1024{
-        padding: 0 64px;
+    @include min1024-max1440{
+        padding: 0 60px;
     }
 }
 .main {
@@ -78,3 +85,4 @@ body {
     clip-path: inset(50%);
     margin: -1px;
 }
+

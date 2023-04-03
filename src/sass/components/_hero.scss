@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 100%;
+    max-width: 1170px;
     height: 500px;
     box-sizing: border-box;
     background-repeat: no-repeat;
@@ -12,15 +12,39 @@
     background-color: #F8F8F8;
     background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgrounMob.png);
     padding: 40px 16px 71px 16px;
-   
+    @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (-o-min-device-pixel-ratio: 2/1),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgrounMob@2.png);
+        }
     
 
    
     @include min768-max1023{
-        padding: 0 32px;
+        padding: 89px 194px;
+        height: 650px;
+        background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgroundTablet.png);
+        @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (-o-min-device-pixel-ratio: 2/1),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgroundTablet-2x.png);
+        }
     }
     @include min1024{
-        padding: 0 64px;
+        padding: 164px 322px;
+        height: 650px;
+        background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgroundDesktop.png);
+        @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (-o-min-device-pixel-ratio: 2/1),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/backgroundDesktop-2x.png);
+        }
     }
 }
 

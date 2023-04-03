@@ -7,6 +7,15 @@
     justify-content: center;
     background-color: var( --secondary-text-xolor);
     border-radius: 10px;
+    overflow: hidden;
+
+
+    @include min1024 {
+        width: 282px;
+        box-sizing: border-box;
+       }
+   
+
 }
 
 .partner-item_photo{
@@ -21,10 +30,13 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .partner-item_cont{
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    width: -webkit-fill-available;
 }

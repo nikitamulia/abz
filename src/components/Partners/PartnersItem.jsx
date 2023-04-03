@@ -1,5 +1,5 @@
 import React from 'react';
-import FormatedPhone from '../../hooks/FormatedPhone';
+import { FormatedPhone } from '../../hooks/FormatedPhone';
 
 export default function PartnersItem({ partner }) {
   const { photo, name, position, email, phone } = partner;
@@ -7,7 +7,13 @@ export default function PartnersItem({ partner }) {
   return (
     <li className="partner-item">
       <div>
-        <img className="partner-item_photo" src={photo} alt={name} />
+        <img
+          height="70"
+          width="70"
+          className="partner-item_photo"
+          src={photo}
+          alt={name}
+        />
       </div>
       <p className="partner-item_text">{name}</p>
       <div className="partner-item_cont">

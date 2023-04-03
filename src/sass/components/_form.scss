@@ -1,0 +1,302 @@
+.succes-block{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.title{
+    font-family: var(--primary-font);
+    color: var( --primary-text-color);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 328px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include min768 {
+      width: 380px;
+    }
+}
+
+.input-group{
+    position: relative;
+    margin-top: 50px;
+}
+
+.placeholder{
+    position: absolute;
+    color: #7E7E7E;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    left: 16px;
+    top: 14px;
+    transition: 0.3s;
+    pointer-events: none;
+
+}
+
+.input{
+    width: 328px;
+    height: 54px;
+    border: 1px solid #D0CFCF;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    font-family: var(--primary-font);
+    color: var(--primary-text-color);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    background-color: transparent;
+
+    
+
+    &.error{
+      border: 1px solid #CB3D40;
+        &:not(:focus) + .placeholder{
+            top: -14px;
+            padding: 0 7px;
+            background: var(--background-color);
+            color: #CB3D40;
+            font-size: 12px;
+        }
+    }
+
+    @include min768 {
+      width: 380px;
+    }
+}
+
+.input:focus~.placeholder{
+        top: -14px;
+        padding: 0 7px;
+        background: var(--background-color);
+        font-size: 12px;
+}
+
+.input:not(:placeholder-shown) + .placeholder{
+   
+        top: -14px;
+        padding: 0 7px;
+        background: var(--background-color);
+        font-size: 12px;
+    
+  }
+
+.error-text{
+    position: absolute;
+    left: 15px;
+    font-family: 'Asap';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #CB3D40;
+}
+
+.exampleText{
+    position: absolute;
+    left: 15px;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #7E7E7E;
+}
+
+.form_radio-title{
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color:var(--primary-text-color);
+    margin-right: auto;
+    margin-top: 43px;
+    margin-bottom: 11px;
+}
+
+.radio-container {
+  margin: 0.5rem;
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    + .radio-label {
+      &:before {
+        content: '';
+        background: transparent;
+        border-radius: 100%;
+        border: 1px solid #D0CFCF;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: -0.2em;
+        margin-right: 12px; 
+        vertical-align: middle;
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        &:before {
+          background-color: var(--secondary-color);
+           border: 1px solid var(--secondary-color);
+          box-shadow: inset 0 0 0 4px #fff;
+        }
+      }
+    }
+    &:focus {
+      + .radio-label {
+        &:before {
+          outline: none;
+          border-color: var(--secondary-color);
+        }
+      }
+    }
+  }
+}
+
+.form_radio-box{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: baseline;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 47px;
+}
+
+.input__wrapper {
+    width: 328px;
+    height: 54px;
+    position: relative;
+    text-align: center;
+
+    @include min768 {
+      width: 380px;
+    }
+    
+  }
+   
+  .input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+   
+  .input__file-icon-wrapper {
+    width: 83px;
+    height: 54px;
+    padding: 14px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    border-radius: 4px 0px 0px 4px;
+    color: var(--primary-text-color);
+    box-sizing: border-box;
+    &.photo-error{
+      border: 1px solid #CB3D40;
+      border-right: none;
+    }
+  }
+   
+  .input__file-button-text {
+    padding-left: 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border: 1px solid #D0CFCF;
+    border-left: none;
+    border-radius: 0px 4px 4px 0px;
+    height: 54px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: initial;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &.photo-error{
+      border: 1px solid #CB3D40;
+    }
+  }
+   
+  .input__file-button {
+    width: 100%;
+    height: 54px;
+    background: #fff;
+    font-family: var(--primary-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #7E7E7E;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    cursor: pointer;
+  }
+
+.btn_form {
+	@extend %butt_size_1;
+	&.yellow_mod {
+		@extend %butt_yellow_1;
+	}
+    &.disable_mod {
+       @extend %butt_grey_1;
+       color: #fff;
+    }
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.position-error{
+    font-family: 'Asap';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #CB3D40;
+}
+
+.photo-validation{
+    font-family: 'Asap';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #CB3D40;
+}

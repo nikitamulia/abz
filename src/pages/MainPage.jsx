@@ -1,18 +1,20 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { fetchUsers } from '../Api/Api';
-import Header from '../components/Header/Header';
-import Hero from '../components/Hero/Hero';
-import Partners from '../components/Partners/Partners';
-import Form from '../components/Form/Form';
+
+const Header = lazy(() => import('../components/Header/Header'));
+const Hero = lazy(() => import('../components/Hero/Hero'));
+const Partners = lazy(() => import('../components/Partners/Partners'));
+const PostForm = lazy(() => import('../components/PostForm/PostForm'));
 
 export default function MainPage() {
   const [users, setUsers] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const loadPartners = async () => {
       try {
-        const res = await fetchUsers();
+        const res = await fetchUsers(page);
         const users = res.users;
         setUsers(users);
       } catch (error) {
@@ -20,16 +22,23 @@ export default function MainPage() {
       }
     };
     loadPartners();
-  }, []);
+  }, [page]);
+
+  const postUsers = users => {
+    setUsers(users);
+    setPage(1);
+  };
 
   return (
-    <div>
-      <Header />
-      <main className="main">
-        <Hero />
-        <Partners partners={users} />
-        <Form />
-      </main>
-    </div>
+    <>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Header />
+        <main className="main">
+          <Hero />
+          <Partners partners={users} setPage={setPage} page={page} />
+          <PostForm postUsers={postUsers} />
+        </main>
+      </Suspense>
+    </>
   );
 }
