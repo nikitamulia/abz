@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const BASE_URL = ' https://frontend-test-assignment-api.abz.agency/api/v1';
 
@@ -21,15 +22,21 @@ export const fetchUsers = async (page = 1) => {
     const data = res.data;
     return data;
   } catch (error) {
-    console.log(error);
+    const err = error.response.status;
+    if (err === 404) toast.error('Page not found.');
+    if (err === 422) toast.error('Validation failed.');
   }
 };
 
 export const getPosition = async () => {
-  return await axios
-    .get(`${BASE_URL}/positions`)
-    .then(response => response.data)
-    .catch(error => console.log(error));
+  try {
+    const res = await axios.get(`${BASE_URL}/positions`);
+    return res.data;
+  } catch (error) {
+    const err = error.response.status;
+    if (err === 404) toast.error('Page not found.');
+    if (err === 422) toast.error('Positions not found.');
+  }
 };
 
 export const postUser = async formData => {
@@ -38,7 +45,11 @@ export const postUser = async formData => {
     const res = await axios.post(`${BASE_URL}/users`, formData);
     return res.data;
   } catch (error) {
-    console.log('error', error);
+    const err = error.response.status;
+    if (err === 401) toast.error('The token expired.');
+    if (err === 409)
+      toast.error('User with this phone or email already exist.');
+    if (err === 422) toast.error('Validation failed.');
   }
 };
 

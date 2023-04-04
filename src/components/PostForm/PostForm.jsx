@@ -91,14 +91,15 @@ export default function PostForm({ postUsers }) {
               formData.append('photo', values.photo);
 
               try {
-                await postUser(formData);
+                const res = await postUser(formData);
+                if (res) {
+                  setSuccesSignUp(true);
+                  const response = await fetchUsers();
+                  postUsers(response.users);
+                  scrollToSection('users');
+                }
               } catch (error) {
                 console.log('error', error);
-              } finally {
-                setSuccesSignUp(true);
-                const response = await fetchUsers();
-                postUsers(response.users);
-                scrollToSection('users');
               }
               resetForm();
             }}
